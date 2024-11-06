@@ -1,0 +1,9 @@
+{
+	"name": "adf-fall24-dadabi",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "905a12f5-2347-48a8-950b-5fb83b6e2e01",
+		"tenantId": "a8eec281-aaa3-4dae-ac9b-9a398b9215e7"
+	}
+}
