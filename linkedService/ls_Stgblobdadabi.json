@@ -1,0 +1,10 @@
+{
+	"name": "ls_Stgblobdadabi",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://stgblobdadabi.dfs.core.windows.net/"
+		}
+	}
+}
