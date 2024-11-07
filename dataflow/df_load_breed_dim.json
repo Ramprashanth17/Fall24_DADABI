@@ -10,14 +10,45 @@
 						"type": "DatasetReference"
 					},
 					"name": "sourcesnowflakestg"
+				},
+				{
+					"dataset": {
+						"referenceName": "ds_EDW_Breed_dim",
+						"type": "DatasetReference"
+					},
+					"name": "sourceBreedDim"
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "join1"
+				}
+			],
 			"scriptLines": [
-				"source(allowSchemaDrift: false,",
+				"source(output(",
+				"          LICENSE_ISSUE_DATE as string,",
+				"          LICENSE_NUMBER as string,",
+				"          ANIMAL_S_NAME as string,",
+				"          SPECIES as string,",
+				"          PRIMARY_BREED as string,",
+				"          SECONDARY_BREED as string,",
+				"          ZIP_CODE as string,",
+				"          DI_CREATED_DATE as timestamp,",
+				"          DI_JOB_ID as string",
+				"     ),",
+				"     allowSchemaDrift: false,",
 				"     validateSchema: false,",
-				"     format: 'table') ~> sourcesnowflakestg"
+				"     format: 'table') ~> sourcesnowflakestg",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     query: 'SELECT NVL(MAX(BREED_DIM),0) AS MAXBREEDSK FROM ADF_DEMO.SEATTLE_PET_LICENSES.BREED_DIM;',",
+				"     format: 'query') ~> sourceBreedDim",
+				"sourcesnowflakestg, sourceBreedDim join(1==1,",
+				"     joinType:'cross',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> join1"
 			]
 		}
 	}
