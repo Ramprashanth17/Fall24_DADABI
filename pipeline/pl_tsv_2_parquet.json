@@ -195,7 +195,14 @@
 							"type": "SnowflakeImportCopyCommand"
 						}
 					},
-					"enableStaging": false,
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "ls_Stgblobdadabi",
+							"type": "LinkedServiceReference"
+						},
+						"path": "snowflakestg"
+					},
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
@@ -270,12 +277,20 @@
 								}
 							},
 							{
+								"source": {
+									"name": "DI_CREATE_DT",
+									"type": "String"
+								},
 								"sink": {
 									"name": "DI_CREATED_DATE",
 									"type": "DateTime"
 								}
 							},
 							{
+								"source": {
+									"name": "DI_JOB_ID",
+									"type": "String"
+								},
 								"sink": {
 									"name": "DI_JOB_ID",
 									"type": "String"
