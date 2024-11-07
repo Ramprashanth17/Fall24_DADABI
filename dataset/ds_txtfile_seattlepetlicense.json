@@ -8,7 +8,7 @@
 		"parameters": {
 			"Directory": {
 				"type": "string",
-				"defaultValue": "_"
+				"defaultValue": "bronze_demo"
 			},
 			"FileName": {
 				"type": "string",
@@ -28,7 +28,7 @@
 					"value": "@dataset().Directory",
 					"type": "Expression"
 				},
-				"fileSystem": "bronze-demo"
+				"fileSystem": "."
 			},
 			"columnDelimiter": "\t",
 			"escapeChar": "\\",
