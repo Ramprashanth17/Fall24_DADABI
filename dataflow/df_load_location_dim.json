@@ -12,7 +12,15 @@
 					"name": "sourceGeoData2Location"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_EDW_location_dim",
+						"type": "DatasetReference"
+					},
+					"name": "sinkLocation"
+				}
+			],
 			"transformations": [
 				{
 					"name": "surrogateKey"
@@ -41,7 +49,35 @@
 				"     stepValue: 1L) ~> surrogateKey",
 				"surrogateKey derive(Location_SK = rowNum,",
 				"          DI_JOB_ID = $DI_Job_ID,",
-				"          DI_Created_Date = toString(currentDate(),'yyyy-MM-dd')) ~> derivedColumn"
+				"          DI_Created_Date = toString(currentDate(),'yyyy-MM-dd')) ~> derivedColumn",
+				"derivedColumn sink(allowSchemaDrift: false,",
+				"     validateSchema: false,",
+				"     input(",
+				"          LOCATION_SK as string,",
+				"          ZIP as string,",
+				"          CITY as string,",
+				"          STATE as string,",
+				"          STATE_ABBREVIATION as string,",
+				"          DI_JOB_ID as string,",
+				"          DI_CREATED_DT as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     stageInsert: true,",
+				"     mapColumn(",
+				"          LOCATION_SK = Location_SK,",
+				"          ZIP = zipcode,",
+				"          CITY = city,",
+				"          STATE = state,",
+				"          STATE_ABBREVIATION = state_abbr,",
+				"          DI_JOB_ID,",
+				"          DI_CREATED_DT = DI_Created_Date",
+				"     )) ~> sinkLocation"
 			]
 		}
 	}
