@@ -1,0 +1,24 @@
+{
+	"name": "df_load_breed_dim",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_snowflake_stg_spl",
+						"type": "DatasetReference"
+					},
+					"name": "sourcesnowflakestg"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(allowSchemaDrift: false,",
+				"     validateSchema: false,",
+				"     format: 'table') ~> sourcesnowflakestg"
+			]
+		}
+	}
+}
