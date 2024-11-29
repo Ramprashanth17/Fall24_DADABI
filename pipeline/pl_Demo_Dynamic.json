@@ -224,9 +224,6 @@
 			},
 			"tname": {
 				"type": "string"
-			},
-			"JobID": {
-				"type": "string"
 			}
 		},
 		"variables": {
