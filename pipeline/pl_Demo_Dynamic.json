@@ -53,7 +53,7 @@
 						"type": "Expression"
 					},
 					"isSequential": false,
-					"batchCount": 10,
+					"batchCount": 5,
 					"activities": [
 						{
 							"name": "Set TableName",
@@ -135,6 +135,70 @@
 											"type": "Expression"
 										}
 									}
+								}
+							]
+						},
+						{
+							"name": "Parquet2StgTable",
+							"type": "Copy",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.00:10:00",
+								"retry": 2,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"source": {
+									"type": "AzureSqlSource",
+									"additionalColumns": [
+										{
+											"name": "DI_JOB_ID",
+											"value": {
+												"value": "@pipeline().parameters.JobID",
+												"type": "Expression"
+											}
+										},
+										{
+											"name": "DI_CREATE_DT",
+											"value": {
+												"value": "@utcNow()",
+												"type": "Expression"
+											}
+										}
+									],
+									"queryTimeout": "02:00:00",
+									"partitionOption": "None"
+								},
+								"sink": {
+									"type": "SnowflakeV2Sink",
+									"importSettings": {
+										"type": "SnowflakeImportCopyCommand"
+									}
+								},
+								"enableStaging": true,
+								"stagingSettings": {
+									"linkedServiceName": {
+										"referenceName": "ls_stgblobdadabi",
+										"type": "LinkedServiceReference"
+									},
+									"path": "snowflakestg"
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "AzureSqlTableDB_Demo",
+									"type": "DatasetReference"
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "ds_snowflake_stg_spl",
+									"type": "DatasetReference"
 								}
 							]
 						}
