@@ -1,0 +1,28 @@
+{
+	"name": "ds_2_parquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_stgfall24dababi",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"filename": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().filename",
+					"type": "Expression"
+				},
+				"fileSystem": "silver-demo"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
