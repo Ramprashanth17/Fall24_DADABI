@@ -9,7 +9,7 @@
 		"parameters": {
 			"Directory": {
 				"type": "string",
-				"defaultValue": "DS_DADABI_Final_Project"
+				"defaultValue": "DADABI_FINAL_PROJECT_SRC_FILES"
 			},
 			"FileName": {
 				"type": "string",
