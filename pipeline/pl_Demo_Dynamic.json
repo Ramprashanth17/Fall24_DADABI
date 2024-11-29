@@ -153,22 +153,6 @@
 							"typeProperties": {
 								"source": {
 									"type": "AzureSqlSource",
-									"additionalColumns": [
-										{
-											"name": "DI_JOB_ID",
-											"value": {
-												"value": "@pipeline().parameters.JobID",
-												"type": "Expression"
-											}
-										},
-										{
-											"name": "DI_CREATE_DT",
-											"value": {
-												"value": "@utcNow()",
-												"type": "Expression"
-											}
-										}
-									],
 									"queryTimeout": "02:00:00",
 									"partitionOption": "None"
 								},
