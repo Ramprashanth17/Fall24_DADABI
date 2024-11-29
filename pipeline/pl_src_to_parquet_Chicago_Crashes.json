@@ -1,0 +1,10 @@
+{
+	"name": "pl_src_to_parquet_Chicago_Crashes",
+	"properties": {
+		"description": "Pipeline to clean the Chicago Crashes data and load it to the parquet file.\n",
+		"folder": {
+			"name": "PL_DADABI_Final_Project"
+		},
+		"annotations": []
+	}
+}
