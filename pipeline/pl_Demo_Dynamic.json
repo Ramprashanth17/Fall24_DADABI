@@ -56,23 +56,6 @@
 					"batchCount": 5,
 					"activities": [
 						{
-							"name": "Set TableName",
-							"type": "SetVariable",
-							"dependsOn": [],
-							"policy": {
-								"secureOutput": false,
-								"secureInput": false
-							},
-							"userProperties": [],
-							"typeProperties": {
-								"variableName": "tablename",
-								"value": {
-									"value": "@item().table_name",
-									"type": "Expression"
-								}
-							}
-						},
-						{
 							"name": "SourceTable2Parquet",
 							"type": "Copy",
 							"dependsOn": [],
@@ -141,7 +124,14 @@
 						{
 							"name": "Parquet2StgTable",
 							"type": "Copy",
-							"dependsOn": [],
+							"dependsOn": [
+								{
+									"activity": "SourceTable2Parquet",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
 							"policy": {
 								"timeout": "0.00:10:00",
 								"retry": 2,
@@ -176,8 +166,14 @@
 									"referenceName": "AzureSqlTableDB_Demo",
 									"type": "DatasetReference",
 									"parameters": {
-										"schema_name": "sakila",
-										"table_name": "customer"
+										"schema_name": {
+											"value": "@pipeline().parameters.sname",
+											"type": "Expression"
+										},
+										"table_name": {
+											"value": "@pipeline().parameters.tname",
+											"type": "Expression"
+										}
 									}
 								}
 							],
