@@ -202,7 +202,7 @@
 					"enableStaging": true,
 					"stagingSettings": {
 						"linkedServiceName": {
-							"referenceName": "ls_Stgblobdadabi",
+							"referenceName": "ls_stgblobdadabi",
 							"type": "LinkedServiceReference"
 						},
 						"path": "snowflakestg"
