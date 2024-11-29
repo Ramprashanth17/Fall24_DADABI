@@ -682,6 +682,8 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
+							"wildcardFolderPath": "final_project_stg_parquet_files",
+							"wildcardFileName": "Chicago_Crashes_data.parquet",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
