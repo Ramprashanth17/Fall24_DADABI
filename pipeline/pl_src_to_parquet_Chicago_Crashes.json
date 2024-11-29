@@ -4,13 +4,11 @@
 		"description": "Pipeline to clean the Chicago Crashes data and load it to the parquet file.\n",
 		"activities": [
 			{
-				"name": "Copy_2_Silver_As_Parquet",
+				"name": "Copy_2_Silver_As_Parquet_files_fp",
 				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
-					"timeout": "0.01:00:00",
+					"timeout": "0.0:10:00",
 					"retry": 0,
 					"retryIntervalInSeconds": 30,
 					"secureOutput": false,
@@ -638,7 +636,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_Parquet_Staging",
+						"referenceName": "ds_Parquet_Staging_finalproject",
 						"type": "DatasetReference"
 					}
 				]
