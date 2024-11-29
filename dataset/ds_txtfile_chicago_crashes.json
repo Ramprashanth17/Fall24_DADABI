@@ -6,6 +6,16 @@
 			"referenceName": "ls_stgfall24dababi",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"Directory": {
+				"type": "string",
+				"defaultValue": "final_project_src_files"
+			},
+			"FileName": {
+				"type": "string",
+				"defaultValue": "Chicago_Crashes_data.tsv"
+			}
+		},
 		"folder": {
 			"name": "DS_DADABI_Final_Project"
 		},
