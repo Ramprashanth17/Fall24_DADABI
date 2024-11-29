@@ -182,10 +182,7 @@
 									"referenceName": "ds_snowflake_azure_dynamic",
 									"type": "DatasetReference",
 									"parameters": {
-										"sname": {
-											"value": "@pipeline().parameters.sname",
-											"type": "Expression"
-										},
+										"sname": "sakila",
 										"tname": {
 											"value": "@pipeline().parameters.tname",
 											"type": "Expression"
