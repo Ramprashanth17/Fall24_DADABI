@@ -1,0 +1,30 @@
+{
+	"name": "ds_snowflake_azure_dynamic",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_Snowflake_Connection",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"sname": {
+				"type": "String"
+			},
+			"tname": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "SnowflakeV2Table",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().sname",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().tname",
+				"type": "Expression"
+			}
+		}
+	}
+}
