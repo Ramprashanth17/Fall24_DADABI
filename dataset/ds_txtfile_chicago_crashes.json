@@ -7,7 +7,7 @@
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"Directory": {
+			"FolderName": {
 				"type": "string",
 				"defaultValue": "final_project_src_files"
 			},
@@ -24,14 +24,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": {
-					"value": "@dataset().FileName",
-					"type": "Expression"
-				},
-				"folderPath": {
-					"value": "@dataset().Directory",
-					"type": "Expression"
-				},
+				"fileName": "Chicago_Crashes_data.tsv",
+				"folderPath": "final_project_src_files",
 				"fileSystem": "bronze-demo"
 			},
 			"columnDelimiter": "\t",
