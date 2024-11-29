@@ -1,0 +1,31 @@
+{
+	"name": "ds_snowflake_stg_chicago_crashes_final",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_snowflake_final_project",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"schema_name": {
+				"type": "string",
+				"defaultValue": "MOTOR_CRASHES"
+			},
+			"table_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SnowflakeV2Table",
+		"schema": [],
+		"typeProperties": {
+			"schema": {
+				"value": "@dataset().schema_name",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().table_name",
+				"type": "Expression"
+			}
+		}
+	}
+}
