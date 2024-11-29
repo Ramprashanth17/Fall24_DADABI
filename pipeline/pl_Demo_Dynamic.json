@@ -197,8 +197,18 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "ds_snowflake_stg_spl",
-									"type": "DatasetReference"
+									"referenceName": "ds_snowflake_azure_dynamic",
+									"type": "DatasetReference",
+									"parameters": {
+										"sname": {
+											"value": "@pipeline().parameters.sname",
+											"type": "Expression"
+										},
+										"tname": {
+											"value": "@pipeline().parameters.tname",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
@@ -208,6 +218,12 @@
 		],
 		"parameters": {
 			"sname": {
+				"type": "string"
+			},
+			"tname": {
+				"type": "string"
+			},
+			"JobID": {
 				"type": "string"
 			}
 		},
