@@ -192,14 +192,8 @@
 									"referenceName": "AzureSqlTableDB_Demo",
 									"type": "DatasetReference",
 									"parameters": {
-										"schema_name": {
-											"value": "@pipeline().parameters.sname",
-											"type": "Expression"
-										},
-										"table_name": {
-											"value": "@pipeline().parameters.tname",
-											"type": "Expression"
-										}
+										"schema_name": "sakila",
+										"table_name": "customer"
 									}
 								}
 							],
