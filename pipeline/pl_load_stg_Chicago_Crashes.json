@@ -1,0 +1,10 @@
+{
+	"name": "pl_load_stg_Chicago_Crashes",
+	"properties": {
+		"description": "Pipeline to load the staging table of Chicago Crashes.",
+		"folder": {
+			"name": "DADABI_Final_Project"
+		},
+		"annotations": []
+	}
+}
