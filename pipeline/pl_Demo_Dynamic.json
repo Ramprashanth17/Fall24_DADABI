@@ -197,7 +197,8 @@
 		],
 		"parameters": {
 			"sname": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "dbo"
 			},
 			"tname": {
 				"type": "string"
