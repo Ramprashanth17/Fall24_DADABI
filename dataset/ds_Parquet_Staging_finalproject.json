@@ -5,6 +5,9 @@
 			"referenceName": "ls_stgfall24dababi",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "DS_DADABI_Final_Project"
+		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
