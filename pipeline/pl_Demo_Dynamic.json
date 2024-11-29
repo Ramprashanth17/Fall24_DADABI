@@ -141,8 +141,6 @@
 						{
 							"name": "Parquet2StgTable",
 							"type": "Copy",
-							"state": "Inactive",
-							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [],
 							"policy": {
 								"timeout": "0.00:10:00",
@@ -192,7 +190,17 @@
 							"inputs": [
 								{
 									"referenceName": "AzureSqlTableDB_Demo",
-									"type": "DatasetReference"
+									"type": "DatasetReference",
+									"parameters": {
+										"schema_name": {
+											"value": "@pipeline().parameters.sname",
+											"type": "Expression"
+										},
+										"table_name": {
+											"value": "@pipeline().parameters.tname",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
