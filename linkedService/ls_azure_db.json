@@ -1,0 +1,17 @@
+{
+	"name": "ls_azure_db",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "fall24dadabi.database.windows.net",
+			"database": "sakila",
+			"encrypt": "optional",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "fall24biadmin",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEM5NTY2NzMxLUZCMUUtNEE5MS05Q0YyLTA2RDZFNUU2Nzg0N183NTc2NTViNi0xYjJhLTRjZTYtOWQ3Ni05NTM5ZGI5MjYzMDAiDQp9"
+		}
+	}
+}
