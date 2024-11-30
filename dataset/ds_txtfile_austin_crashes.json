@@ -12,7 +12,8 @@
 				"defaultValue": "final_project_src_files"
 			},
 			"FileName": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "Austin_Crashes_data.tsv"
 			}
 		},
 		"folder": {
