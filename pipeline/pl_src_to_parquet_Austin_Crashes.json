@@ -5,6 +5,8 @@
 			{
 				"name": "Copy_2_Silver_As_Parquet_files_fp",
 				"type": "Copy",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.0:10:00",
@@ -663,7 +665,8 @@
 								"FileName": "Austin_Crashes_data.tsv"
 							},
 							"sinkAustinCleaned": {
-								"FolderName": "final_project_src_files"
+								"FolderName": "final_project_src_files",
+								"FileName": "Austin_Crashes_Col_cleaned"
 							}
 						}
 					},
