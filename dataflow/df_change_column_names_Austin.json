@@ -119,7 +119,7 @@
 				"          pedestrian_death_count = toString(pedestrian_death_count),",
 				"          pedestrian_serious_injury_count = toString(pedestrian_serious_injury_count),",
 				"          motorcycle_death_count = toString(motorcycle_death_count),",
-				"          motor_vehicle_serious_injury_count = toString(motor_vehicle_serious_injury_count),",
+				"          motorcycle_serious_injury_count = toString(motorcycle_serious_injury_count),",
 				"          other_death_count = toString(other_death_count),",
 				"          other_serious_injury_count = toString(other_serious_injury_count),",
 				"          onsys_fl = toString(onsys_fl),",
