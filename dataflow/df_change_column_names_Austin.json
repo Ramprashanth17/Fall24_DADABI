@@ -29,6 +29,9 @@
 			"transformations": [
 				{
 					"name": "derivedColumnAustin"
+				},
+				{
+					"name": "select1"
 				}
 			],
 			"scriptLines": [
@@ -44,7 +47,20 @@
 				"          LAW_ENFORCEMENT_FATALITY_COUNT = byName('Law enforcement fatality count'),",
 				"          REPORTED_STREET_PREFIX = byName('Reported street prefix'),",
 				"          CRASH_TIMESTAMP_US_OR_CENTRAL = byName('Crash timestamp (US/Central)')) ~> derivedColumnAustin",
-				"derivedColumnAustin sink(allowSchemaDrift: true,",
+				"derivedColumnAustin select(mapColumn(",
+				"          CRASH_ID,",
+				"          {PRIMARY_ADDRESS },",
+				"          SECONDARY_ADDRESS,",
+				"          CRASH_TIMESTAMP,",
+				"          IS_DELETED,",
+				"          IS_TEMPORARY_RECORD,",
+				"          LAW_ENFORCEMENT_FATALITY_COUNT,",
+				"          REPORTED_STREET_PREFIX,",
+				"          CRASH_TIMESTAMP_US_OR_CENTRAL",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     umask: 0777,",
 				"     preCommands: [],",
