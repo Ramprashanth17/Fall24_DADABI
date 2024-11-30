@@ -17,15 +17,7 @@
 					"description": "Add source dataset which is Austin Crashes"
 				}
 			],
-			"sinks": [
-				{
-					"dataset": {
-						"referenceName": "ds_txtfile_austin_crashes_corrected_columns",
-						"type": "DatasetReference"
-					},
-					"name": "sinkAustinCleaned"
-				}
-			],
+			"sinks": [],
 			"transformations": [
 				{
 					"name": "derivedColumn1"
@@ -91,7 +83,7 @@
 				"          Is_Deleted = byName('Is deleted'),",
 				"          Is_Temporary_Record = byName('Is temporary record'),",
 				"          Law_enforcement_fatality_count = byName('Law enforcement fatality count'),",
-				"          {Reported street prefix} = byName('Reported street prefix'),",
+				"          Reported_street_prefix = byName('Reported street prefix'),",
 				"          ID = toString(ID),",
 				"          crash_fatal_fl = toString(crash_fatal_fl),",
 				"          case_id = toString(case_id),",
@@ -126,7 +118,7 @@
 				"          private_dr_fl = toString(private_dr_fl),",
 				"          micromobility_serious_injury_count = toString(micromobility_serious_injury_count),",
 				"          micromobility_death_count = toString(micromobility_death_count)) ~> derivedColumn1",
-				"srcAustin select(mapColumn(",
+				"derivedColumn1 select(mapColumn(",
 				"          ID,",
 				"          crash_fatal_fl,",
 				"          case_id,",
@@ -168,18 +160,11 @@
 				"          Crash_Timestamp,",
 				"          Is_Deleted,",
 				"          Is_Temporary_Record,",
-				"          Law_enforcement_fatality_count",
+				"          Law_enforcement_fatality_count,",
+				"          {Reported street prefix} = Reported_street_prefix",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> select1",
-				"select1 sink(allowSchemaDrift: true,",
-				"     validateSchema: false,",
-				"     umask: 0777,",
-				"     preCommands: [],",
-				"     postCommands: [],",
-				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true,",
-				"     saveOrder: 1) ~> sinkAustinCleaned"
+				"     skipDuplicateMapOutputs: true) ~> select1"
 			]
 		}
 	}
