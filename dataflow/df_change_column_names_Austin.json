@@ -49,7 +49,7 @@
 				"          CRASH_TIMESTAMP_US_OR_CENTRAL = byName('Crash timestamp (US/Central)')) ~> derivedColumnAustin",
 				"derivedColumnAustin select(skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select1",
-				"select1 sink(allowSchemaDrift: true,",
+				"select1 sink(allowSchemaDrift: false,",
 				"     validateSchema: false,",
 				"     umask: 0777,",
 				"     preCommands: [],",

@@ -23,6 +23,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": ".tsv",
 				"folderPath": {
 					"value": "@dataset().FolderName",
 					"type": "Expression"
