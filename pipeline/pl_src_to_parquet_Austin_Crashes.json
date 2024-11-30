@@ -5,12 +5,17 @@
 			{
 				"name": "Copy_2_Silver_As_Parquet_files_fp",
 				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Austin_corrected_cols",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.0:10:00",
-					"retry": 0,
+					"retry": 2,
 					"retryIntervalInSeconds": 30,
 					"secureOutput": false,
 					"secureInput": false
@@ -52,7 +57,8 @@
 						"referenceName": "ds_txtfile_austin_crashes_corrected_columns",
 						"type": "DatasetReference",
 						"parameters": {
-							"FolderName": "final_project_src_files"
+							"FolderName": "final_project_src_files",
+							"FileName": "Austin_Column_Corrected.tsv"
 						}
 					}
 				],
@@ -664,9 +670,9 @@
 								"FolderName": "final_project_src_files",
 								"FileName": "Austin_Crashes_data.tsv"
 							},
-							"sinkAustinCleaned": {
+							"sink1": {
 								"FolderName": "final_project_src_files",
-								"FileName": "Austin_Crashes_Col_cleaned"
+								"FileName": "Austin_Corrected_Column.tsv"
 							}
 						}
 					},
