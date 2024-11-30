@@ -1,0 +1,45 @@
+{
+	"name": "ds_txtfile_nyc_crashes",
+	"properties": {
+		"description": "TSV Source file of NYC Crashes.\n",
+		"linkedServiceName": {
+			"referenceName": "ls_stgfall24dababi",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"FolderName": {
+				"type": "string",
+				"defaultValue": "final_project_src_files"
+			},
+			"FileName": {
+				"type": "string",
+				"defaultValue": "New_York_crashes_Data.tsv"
+			}
+		},
+		"folder": {
+			"name": "DS_DADABI_Final_Project"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().FolderName",
+					"type": "Expression"
+				},
+				"fileSystem": "bronze-demo"
+			},
+			"columnDelimiter": "\t",
+			"rowDelimiter": "\n",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
