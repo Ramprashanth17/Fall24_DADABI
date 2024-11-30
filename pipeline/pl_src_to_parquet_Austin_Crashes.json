@@ -70,10 +70,8 @@
 				]
 			},
 			{
-				"name": "Parquet2StgChicagoTable",
+				"name": "Parquet2StgAustinTable",
 				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.00:10:00",
@@ -106,6 +104,7 @@
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
 							"wildcardFolderPath": "final_project_stg_parquet_files",
+							"wildcardFileName": "Austin_Column_Corrected.parquet",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -684,6 +683,11 @@
 				}
 			}
 		],
+		"parameters": {
+			"JobID": {
+				"type": "string"
+			}
+		},
 		"folder": {
 			"name": "PL_DADABI_Final_Project"
 		},
