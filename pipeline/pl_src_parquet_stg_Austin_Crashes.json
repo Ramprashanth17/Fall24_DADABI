@@ -1,5 +1,5 @@
 {
-	"name": "pl_src_to_parquet_Austin_Crashes",
+	"name": "pl_src_parquet_stg_Austin_Crashes",
 	"properties": {
 		"activities": [
 			{
