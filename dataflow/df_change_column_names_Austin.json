@@ -50,7 +50,7 @@
 				"derivedColumnAustin select(skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select1",
 				"select1 sink(allowSchemaDrift: false,",
-				"     validateSchema: false,",
+				"     validateSchema: true,",
 				"     umask: 0777,",
 				"     preCommands: [],",
 				"     postCommands: [],",
