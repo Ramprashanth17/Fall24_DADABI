@@ -23,7 +23,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "Austin_Crashes_data.tsv",
 				"folderPath": {
 					"value": "@dataset().FolderName",
 					"type": "Expression"
