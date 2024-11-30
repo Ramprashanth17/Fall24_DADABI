@@ -108,9 +108,14 @@
 			{
 				"name": "Parquet2StgNYCTable",
 				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Copy_2_Silver_As_Parquet_files_fp",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.00:10:00",
 					"retry": 2,
@@ -142,7 +147,7 @@
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
 							"wildcardFolderPath": "final_project_stg_parquet_files",
-							"wildcardFileName": "Austin_Column_Corrected.parquet",
+							"wildcardFileName": "NYC_Columns_Corrected.parquet",
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -168,117 +173,47 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "ID",
+									"name": "CRASH_DATE",
 									"type": "String"
 								},
 								"sink": {
-									"name": "ID",
+									"name": "CRASH_DATE",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "Crash_ID",
+									"name": "CRASH_TIME",
 									"type": "String"
 								},
 								"sink": {
-									"name": "CRASH_ID",
+									"name": "CRASH_TIME",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "crash_fatal_fl",
+									"name": "BOROUGH",
 									"type": "String"
 								},
 								"sink": {
-									"name": "CRASH_FATAL_FL",
+									"name": "BOROUGH",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "case_id",
+									"name": "ZIP_CODE",
 									"type": "String"
 								},
 								"sink": {
-									"name": "CASE_ID",
+									"name": "ZIP_CODE",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "Primary_Address",
-									"type": "String"
-								},
-								"sink": {
-									"name": "PRIMARY_ADDRESS",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "Secondary_Address",
-									"type": "String"
-								},
-								"sink": {
-									"name": "SECONDARY_ADDRESS",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "rpt_block_num",
-									"type": "String"
-								},
-								"sink": {
-									"name": "RPT_BLOCK_NUM",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "rpt_street_name",
-									"type": "String"
-								},
-								"sink": {
-									"name": "RPT_STREET_NAME",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "rpt_street_sfx",
-									"type": "String"
-								},
-								"sink": {
-									"name": "RPT_STREET_SFX",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "crash_speed_limit",
-									"type": "String"
-								},
-								"sink": {
-									"name": "CRASH_SPEED_LIMIT",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "road_constr_zone_fl",
-									"type": "String"
-								},
-								"sink": {
-									"name": "ROAD_CONSTR_ZONE_FL",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "latitude",
+									"name": "LATITUDE",
 									"type": "String"
 								},
 								"sink": {
@@ -288,7 +223,7 @@
 							},
 							{
 								"source": {
-									"name": "longitude",
+									"name": "LONGITUDE",
 									"type": "String"
 								},
 								"sink": {
@@ -298,302 +233,252 @@
 							},
 							{
 								"source": {
-									"name": "crash_sev_id",
+									"name": "LOCATION",
 									"type": "String"
 								},
 								"sink": {
-									"name": "CRASH_SEV_ID",
+									"name": "LOCATION",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "sus_serious_injry_cnt",
+									"name": "ON_STREET_NAME",
 									"type": "String"
 								},
 								"sink": {
-									"name": "SUS_SERIOUS_INJRY_CNT",
+									"name": "ON_STREET_NAME",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "nonincap_injry_cnt",
+									"name": "CROSS_STREET_NAME",
 									"type": "String"
 								},
 								"sink": {
-									"name": "NONINCAP_INJRY_CNT",
+									"name": "CROSS_STREET_NAME",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "poss_injry_cnt",
+									"name": "OFF_STREET_NAME",
 									"type": "String"
 								},
 								"sink": {
-									"name": "POSS_INJRY_CNT",
+									"name": "OFF_STREET_NAME",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "non_injry_cnt",
+									"name": "NUMBER_OF_PERSONS_INJURED",
 									"type": "String"
 								},
 								"sink": {
-									"name": "NON_INJRY_CNT",
+									"name": "NUMBER_OF_PERSONS_INJURED",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "unkn_injry_cnt",
+									"name": "NUMBER_OF_PERSONS_KILLED",
 									"type": "String"
 								},
 								"sink": {
-									"name": "UNKN_INJRY_CNT",
+									"name": "NUMBER_OF_PERSONS_KILLED",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "tot_injry_cnt",
+									"name": "NUMBER_OF_PEDESTRIANS_INJURED",
 									"type": "String"
 								},
 								"sink": {
-									"name": "TOT_INJRY_CNT",
+									"name": "NUMBER_OF_PEDESTRIANS_INJURED",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "death_cnt",
+									"name": "NUMBER_OF_PEDESTRIANS_KILLED",
 									"type": "String"
 								},
 								"sink": {
-									"name": "DEATH_CNT",
+									"name": "NUMBER_OF_PEDESTRIANS_KILLED",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "units_involved",
+									"name": "NUMBER_OF_CYCLIST_INJURED",
 									"type": "String"
 								},
 								"sink": {
-									"name": "UNITS_INVOLVED",
+									"name": "NUMBER_OF_CYCLISTS_INJURED",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "point",
+									"name": "NUMBER_OF_CYCLIST_KILLED",
 									"type": "String"
 								},
 								"sink": {
-									"name": "POINT",
+									"name": "NUMBER_OF_CYCLISTS_KILLED",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "motor_vehicle_death_count",
+									"name": "NUMBER_OF_MOTORIST_INJURED",
 									"type": "String"
 								},
 								"sink": {
-									"name": "MOTOR_VEHICLE_DEATH_COUNT",
+									"name": "NUMBER_OF_MOTORISTS_INJURED",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "motor_vehicle_serious_injury_count",
+									"name": "NUMBER_OF_MOTORIST_KILLED",
 									"type": "String"
 								},
 								"sink": {
-									"name": "MOTOR_VEHICLE_SERIOUS_INJURY_COUNT",
+									"name": "NUMBER_OF_MOTORISTS_KILLED",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "bicycle_death_count",
+									"name": "CONTRIBUTING_FACTOR_VEHICLE_1",
 									"type": "String"
 								},
 								"sink": {
-									"name": "BICYCLE_DEATH_COUNT",
+									"name": "CONTRIBUTING_FACTOR_VEHICLE_1",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "bicycle_serious_injury_count",
+									"name": "CONTRIBUTING_FACTOR_VEHICLE_2",
 									"type": "String"
 								},
 								"sink": {
-									"name": "BICYCLE_SERIOUS_INJURY_COUNT",
+									"name": "CONTRIBUTING_FACTOR_VEHICLE_2",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "pedestrian_death_count",
+									"name": "CONTRIBUTING_FACTOR_VEHICLE_3",
 									"type": "String"
 								},
 								"sink": {
-									"name": "PEDESTRIAN_DEATH_COUNT",
+									"name": "CONTRIBUTING_FACTOR_VEHICLE_3",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "pedestrian_serious_injury_count",
+									"name": "CONTRIBUTING_FACTOR_VEHICLE_4",
 									"type": "String"
 								},
 								"sink": {
-									"name": "PEDESTRIAN_SERIOUS_INJURY_COUNT",
+									"name": "CONTRIBUTING_FACTOR_VEHICLE_4",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "motorcycle_death_count",
+									"name": "CONTRIBUTING_FACTOR_VEHICLE_5",
 									"type": "String"
 								},
 								"sink": {
-									"name": "MOTORCYCLE_DEATH_COUNT",
+									"name": "CONTRIBUTING_FACTOR_VEHICLE_5",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "motorcycle_serious_injury_count",
+									"name": "COLLISION_ID",
 									"type": "String"
 								},
 								"sink": {
-									"name": "MOTORCYCLE_SERIOUS_INJURY_COUNT",
+									"name": "COLLISION_ID",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "other_death_count",
+									"name": "VEHICLE_TYPE_CODE_1",
 									"type": "String"
 								},
 								"sink": {
-									"name": "OTHER_DEATH_COUNT",
+									"name": "VEHICLE_TYPE_CODE_1",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "other_serious_injury_count",
+									"name": "VEHICLE_TYPE_CODE_2",
 									"type": "String"
 								},
 								"sink": {
-									"name": "OTHER_SERIOUS_INJURY_COUNT",
+									"name": "VEHICLE_TYPE_CODE_2",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "onsys_fl",
+									"name": "VEHICLE_TYPE_CODE_3",
 									"type": "String"
 								},
 								"sink": {
-									"name": "ONSYS_FL",
+									"name": "VEHICLE_TYPE_CODE_3",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "private_dr_fl",
+									"name": "VEHICLE_TYPE_CODE_4",
 									"type": "String"
 								},
 								"sink": {
-									"name": "PRIVATE_DR_FL",
+									"name": "VEHICLE_TYPE_CODE_4",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "micromobility_serious_injury_count",
+									"name": "VEHICLE_TYPE_CODE_5",
 									"type": "String"
 								},
 								"sink": {
-									"name": "MICROMOBILITY_SERIOUS_INJURY_COUNT",
+									"name": "VEHICLE_TYPE_CODE_5",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "micromobility_death_count",
+									"name": "DI_JOB_ID",
 									"type": "String"
 								},
 								"sink": {
-									"name": "MICROMOBILITY_DEATH_COUNT",
+									"name": "JOB_ID",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"name": "Crash_Timestamp_US_Central",
+									"name": "DI_CREATE_DT",
 									"type": "String"
 								},
 								"sink": {
-									"name": "CRASH_TIMESTAMP_US_CENTRAL",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "Crash_Timestamp",
-									"type": "String"
-								},
-								"sink": {
-									"name": "CRASH_TIMESTAMP",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "Is_Deleted",
-									"type": "String"
-								},
-								"sink": {
-									"name": "IS_DELETED",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "Is_Temporary_Record",
-									"type": "String"
-								},
-								"sink": {
-									"name": "IS_TEMPORARY_RECORD",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "Law_enforcement_fatality_count",
-									"type": "String"
-								},
-								"sink": {
-									"name": "LAW_ENFORCEMENT_FATALITY_COUNT",
-									"type": "String"
-								}
-							},
-							{
-								"source": {
-									"name": "Reported_street_prefix",
-									"type": "String"
-								},
-								"sink": {
-									"name": "REPORTED_STREET_PREFIX",
-									"type": "String"
+									"name": "CREATED_DATE",
+									"type": "DateTime"
 								}
 							}
 						]
@@ -611,7 +496,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"schema_name": "MOTOR_CRASHES",
-							"table_name": "STG_AUSTIN_CRASHES"
+							"table_name": "STG_NYC_CRASHES"
 						}
 					}
 				]
