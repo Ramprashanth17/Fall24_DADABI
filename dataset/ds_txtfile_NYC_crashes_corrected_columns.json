@@ -13,7 +13,7 @@
 			},
 			"FileName": {
 				"type": "string",
-				"defaultValue": "Austin_Column_Corrected.tsv"
+				"defaultValue": "NYC_Column_Corrected.tsv"
 			}
 		},
 		"folder": {
