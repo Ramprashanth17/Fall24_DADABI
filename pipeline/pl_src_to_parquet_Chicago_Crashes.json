@@ -1230,8 +1230,7 @@
 		],
 		"parameters": {
 			"JobID": {
-				"type": "string",
-				"defaultValue": "RunId"
+				"type": "string"
 			}
 		},
 		"folder": {
