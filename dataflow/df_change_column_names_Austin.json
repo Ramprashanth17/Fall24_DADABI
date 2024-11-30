@@ -161,7 +161,7 @@
 				"          Is_Deleted,",
 				"          Is_Temporary_Record,",
 				"          Law_enforcement_fatality_count,",
-				"          {Reported street prefix} = Reported_street_prefix",
+				"          Reported_street_prefix",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select1"
