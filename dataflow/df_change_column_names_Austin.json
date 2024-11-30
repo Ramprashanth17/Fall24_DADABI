@@ -1,0 +1,57 @@
+{
+	"name": "df_change_column_names_Austin",
+	"properties": {
+		"description": "To change some column names in the Austin dataset to ADF-compliant names.",
+		"folder": {
+			"name": "Final_Project_DADABI"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_txtfile_austin_crashes",
+						"type": "DatasetReference"
+					},
+					"name": "srcAustin",
+					"description": "Add source dataset which is Austin Crashes"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_txtfile_austin_crashes_corrected_columns",
+						"type": "DatasetReference"
+					},
+					"name": "sinkAustinCleaned"
+				}
+			],
+			"transformations": [
+				{
+					"name": "derivedColumnAustin"
+				}
+			],
+			"scriptLines": [
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> srcAustin",
+				"srcAustin derive(CRASH_ID = byName('CRASH ID'),",
+				"          {PRIMARY_ADDRESS } = byName('Primary address'),",
+				"          SECONDARY_ADDRESS = byName('Secondary address'),",
+				"          CRASH_TIMESTAMP = byName('Crash timestamp'),",
+				"          IS_DELETED = byName('Is deleted'),",
+				"          IS_TEMPORARY_RECORD = byName('Is temporary record'),",
+				"          LAW_ENFORCEMENT_FATALITY_COUNT = byName('Law enforcement fatality count'),",
+				"          REPORTED_STREET_PREFIX = byName('Reported street prefix'),",
+				"          CRASH_TIMESTAMP_US_OR_CENTRAL = byName('Crash timestamp (US/Central)')) ~> derivedColumnAustin",
+				"derivedColumnAustin sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0777,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sinkAustinCleaned"
+			]
+		}
+	}
+}
