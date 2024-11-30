@@ -1,5 +1,5 @@
 {
-	"name": "pl_src_to_parquet_Chicago_Crashes",
+	"name": "pl_src_parquet_stg_Chicago_Crashes",
 	"properties": {
 		"description": "Pipeline to clean the Chicago Crashes data and load it to the parquet file.\n",
 		"activities": [
