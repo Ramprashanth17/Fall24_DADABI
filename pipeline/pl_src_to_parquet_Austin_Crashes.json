@@ -1,0 +1,1178 @@
+{
+	"name": "pl_src_to_parquet_Austin_Crashes",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_2_Silver_As_Parquet_files_fp",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.0:10:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "bronze-demo/@{'final_project_src_files'}/@{'Austin_Crashes_data.tsv'}"
+					},
+					{
+						"name": "Destination",
+						"value": "silver-demo/final_project_stg_parquet_files/"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ID",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Crash ID",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Crash ID",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "crash_fatal_fl",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "crash_fatal_fl",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "case_id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "case_id",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Primary address",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Primary address",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Secondary address",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Secondary address",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "rpt_block_num",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "rpt_block_num",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "rpt_street_name",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "rpt_street_name",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "rpt_street_sfx",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "rpt_street_sfx",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "crash_speed_limit",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "crash_speed_limit",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "road_constr_zone_fl",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "road_constr_zone_fl",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "latitude",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "latitude",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "longitude",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "longitude",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "crash_sev_id",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "crash_sev_id",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "sus_serious_injry_cnt",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "sus_serious_injry_cnt",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "nonincap_injry_cnt",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "nonincap_injry_cnt",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "poss_injry_cnt",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "poss_injry_cnt",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "non_injry_cnt",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "non_injry_cnt",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "unkn_injry_cnt",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "unkn_injry_cnt",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "tot_injry_cnt",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "tot_injry_cnt",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "death_cnt",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "death_cnt",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "units_involved",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "units_involved",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "point",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "point",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "motor_vehicle_death_count",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "motor_vehicle_death_count",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "motor_vehicle_serious_injury_count",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "motor_vehicle_serious_injury_count",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "bicycle_death_count",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "bicycle_death_count",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "bicycle_serious_injury_count",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "bicycle_serious_injury_count",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "pedestrian_death_count",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "pedestrian_death_count",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "pedestrian_serious_injury_count",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "pedestrian_serious_injury_count",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "motorcycle_death_count",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "motorcycle_death_count",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "motorcycle_serious_injury_count",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "motorcycle_serious_injury_count",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "other_death_count",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "other_death_count",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "other_serious_injury_count",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "other_serious_injury_count",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "onsys_fl",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "onsys_fl",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "private_dr_fl",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "private_dr_fl",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "micromobility_serious_injury_count",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "micromobility_serious_injury_count",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "micromobility_death_count",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "micromobility_death_count",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Crash timestamp (US/Central)",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Crash timestamp (US/Central)",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Crash timestamp",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Crash timestamp",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Is deleted",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Is deleted",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Is temporary record",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Is temporary record",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Law enforcement fatality count",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Law enforcement fatality count",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Reported street prefix",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Reported street prefix",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_txtfile_chicago_crashes",
+						"type": "DatasetReference",
+						"parameters": {
+							"FolderName": "final_project_src_files",
+							"FileName": "Austin_Crashes_data.tsv"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_Parquet_Staging_finalproject",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "Parquet2StgChicagoTable",
+				"type": "Copy",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.00:10:00",
+					"retry": 2,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "ParquetSource",
+						"additionalColumns": [
+							{
+								"name": "DI_JOB_ID",
+								"value": {
+									"value": "@pipeline().parameters.JobID",
+									"type": "Expression"
+								}
+							},
+							{
+								"name": "DI_CREATE_DT",
+								"value": {
+									"value": "@utcNow()",
+									"type": "Expression"
+								}
+							}
+						],
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"wildcardFolderPath": "final_project_stg_parquet_files",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "ParquetReadSettings"
+						}
+					},
+					"sink": {
+						"type": "SnowflakeV2Sink",
+						"importSettings": {
+							"type": "SnowflakeImportCopyCommand"
+						}
+					},
+					"enableStaging": true,
+					"stagingSettings": {
+						"linkedServiceName": {
+							"referenceName": "ls_stgblobdadabi",
+							"type": "LinkedServiceReference"
+						},
+						"path": "snowflakestg"
+					},
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "CRASH_RECORD_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CRASH_RECORD_ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CRASH_DATE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CRASH_DATE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CRASH_DATE_EST_I",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CRASH_DATE_EST_I",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "POSTED_SPEED_LIMIT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "POSTED_SPEED_LIMIT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TRAFFIC_CONTROL_DEVICE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TRAFFIC_CONTROL_DEVICE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DEVICE_CONDITION",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DEVICE_CONDITION",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "WEATHER_CONDITION",
+									"type": "String"
+								},
+								"sink": {
+									"name": "WEATHER_CONDITION",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LIGHTING_CONDITION",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LIGHTING_CONDITION",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "FIRST_CRASH_TYPE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "FIRST_CRASH_TYPE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TRAFFICWAY_TYPE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "TRAFFICWAY_TYPE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LANE_CNT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LANE_CNT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ALIGNMENT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ALIGNMENT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ROADWAY_SURFACE_COND",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ROADWAY_SURFACE_COND",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "ROAD_DEFECT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "ROAD_DEFECT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "REPORT_TYPE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "REPORT_TYPE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CRASH_TYPE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CRASH_TYPE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "INTERSECTION_RELATED_I",
+									"type": "String"
+								},
+								"sink": {
+									"name": "INTERSECTION_RELATED_I",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "NOT_RIGHT_OF_WAY_I",
+									"type": "String"
+								},
+								"sink": {
+									"name": "NOT_RIGHT_OF_WAY_I",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "HIT_AND_RUN_I",
+									"type": "String"
+								},
+								"sink": {
+									"name": "HIT_AND_RUN_I",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DAMAGE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DAMAGE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DATE_POLICE_NOTIFIED",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DATE_POLICE_NOTIFIED",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PRIM_CONTRIBUTORY_CAUSE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PRIM_CONTRIBUTORY_CAUSE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "SEC_CONTRIBUTORY_CAUSE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "SEC_CONTRIBUTORY_CAUSE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "STREET_NO",
+									"type": "String"
+								},
+								"sink": {
+									"name": "STREET_NO",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "STREET_DIRECTION",
+									"type": "String"
+								},
+								"sink": {
+									"name": "STREET_DIRECTION",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "STREET_NAME",
+									"type": "String"
+								},
+								"sink": {
+									"name": "STREET_NAME",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BEAT_OF_OCCURRENCE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "BEAT_OF_OCCURRENCE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PHOTOS_TAKEN_I",
+									"type": "String"
+								},
+								"sink": {
+									"name": "PHOTOS_TAKEN_I",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "STATEMENTS_TAKEN_I",
+									"type": "String"
+								},
+								"sink": {
+									"name": "STATEMENTS_TAKEN_I",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DOORING_I",
+									"type": "String"
+								},
+								"sink": {
+									"name": "DOORING_I",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "WORK_ZONE_I",
+									"type": "String"
+								},
+								"sink": {
+									"name": "WORK_ZONE_I",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "WORK_ZONE_TYPE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "WORK_ZONE_TYPE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "WORKERS_PRESENT_I",
+									"type": "String"
+								},
+								"sink": {
+									"name": "WORKERS_PRESENT_I",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "NUM_UNITS",
+									"type": "String"
+								},
+								"sink": {
+									"name": "NUM_UNITS",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "MOST_SEVERE_INJURY",
+									"type": "String"
+								},
+								"sink": {
+									"name": "MOST_SEVERE_INJURY",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "INJURIES_TOTAL",
+									"type": "String"
+								},
+								"sink": {
+									"name": "INJURIES_TOTAL",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "INJURIES_FATAL",
+									"type": "String"
+								},
+								"sink": {
+									"name": "INJURIES_FATAL",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "INJURIES_INCAPACITATING",
+									"type": "String"
+								},
+								"sink": {
+									"name": "INJURIES_INCAPACITATING",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "INJURIES_NON_INCAPACITATING",
+									"type": "String"
+								},
+								"sink": {
+									"name": "INJURIES_NON_INCAPACITATING",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "INJURIES_REPORTED_NOT_EVIDENT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "INJURIES_REPORTED_NOT_EVIDENT",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "INJURIES_NO_INDICATION",
+									"type": "String"
+								},
+								"sink": {
+									"name": "INJURIES_NO_INDICATION",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "INJURIES_UNKNOWN",
+									"type": "String"
+								},
+								"sink": {
+									"name": "INJURIES_UNKNOWN",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CRASH_HOUR",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CRASH_HOUR",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CRASH_DAY_OF_WEEK",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CRASH_DAY_OF_WEEK",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "CRASH_MONTH",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CRASH_MONTH",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LATITUDE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LATITUDE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LONGITUDE",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LONGITUDE",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "LOCATION",
+									"type": "String"
+								},
+								"sink": {
+									"name": "LOCATION",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DI_JOB_ID",
+									"type": "String"
+								},
+								"sink": {
+									"name": "JOB_ID",
+									"type": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DI_CREATE_DT",
+									"type": "String"
+								},
+								"sink": {
+									"name": "CREATED_DATE",
+									"type": "DateTime"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "ds_Parquet_Staging_finalproject",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "ds_snowflake_stg_chicago_crashes_final",
+						"type": "DatasetReference",
+						"parameters": {
+							"schema_name": "MOTOR_CRASHES",
+							"table_name": "STG_CHICAGO_CRASHES"
+						}
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "PL_DADABI_Final_Project"
+		},
+		"annotations": []
+	}
+}
