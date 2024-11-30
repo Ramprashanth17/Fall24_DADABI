@@ -12,7 +12,8 @@
 				"defaultValue": "final_project_src_files"
 			},
 			"FileName": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "Austin_Column_Corrected.tsv"
 			}
 		},
 		"folder": {
@@ -23,7 +24,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": ".tsv",
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
 				"folderPath": {
 					"value": "@dataset().FolderName",
 					"type": "Expression"
