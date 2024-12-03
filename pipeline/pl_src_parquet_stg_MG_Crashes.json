@@ -16,20 +16,6 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"dataflow": {
-						"referenceName": "df_change_column_names_Montgomery",
-						"type": "DataFlowReference",
-						"datasetParameters": {
-							"source1": {
-								"FolderName": "final_project_src_files",
-								"FileName": "Montgomery_Crashes_Data.tsv"
-							},
-							"sink1": {
-								"FolderName": "final_project_src_files",
-								"FileName": "Montogomery_Column_Corrected.tsv"
-							}
-						}
-					},
 					"compute": {
 						"coreCount": 8,
 						"computeType": "General"
@@ -505,8 +491,7 @@
 		],
 		"parameters": {
 			"JobID": {
-				"type": "string",
-				"defaultValue": "2"
+				"type": "string"
 			}
 		},
 		"folder": {
