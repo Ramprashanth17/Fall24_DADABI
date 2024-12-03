@@ -89,7 +89,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_txtfile_Montgomery_corrected_columns_copy1",
+						"referenceName": "ds_txtfile_Montgomery_corrected_columns",
 						"type": "DatasetReference",
 						"parameters": {
 							"FolderName": "final_project_src_files",
@@ -505,7 +505,8 @@
 		],
 		"parameters": {
 			"JobID": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "2"
 			}
 		},
 		"folder": {
