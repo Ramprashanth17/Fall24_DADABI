@@ -4,31 +4,11 @@
 		"description": "Pipeline to load Montgomery src file to parquet and then to the snowflake\n",
 		"activities": [
 			{
-				"name": "df_change_column_names_MG",
-				"type": "ExecuteDataFlow",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "0.00:10:00",
-					"retry": 2,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"compute": {
-						"coreCount": 8,
-						"computeType": "General"
-					},
-					"traceLevel": "Fine"
-				}
-			},
-			{
 				"name": "Copy_2_Silver_As_Parquet_files_fp",
 				"type": "Copy",
 				"dependsOn": [
 					{
-						"activity": "df_change_column_names_MG",
+						"activity": "df_change_column_names_Montgomery",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -487,6 +467,40 @@
 						}
 					}
 				]
+			},
+			{
+				"name": "df_change_column_names_Montgomery",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "df_change_column_names_Montgomery",
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"source1": {
+								"FolderName": "final_project_src_files",
+								"FileName": "Montgomery_Crashes_data.tsv"
+							},
+							"sink1": {
+								"FolderName": "final_project_src_files",
+								"FileName": "Montgomery_Column_Corrected.tsv"
+							}
+						}
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
 			}
 		],
 		"parameters": {
