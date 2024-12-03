@@ -13,7 +13,7 @@
 			},
 			"FileName": {
 				"type": "string",
-				"defaultValue": "Montgomery_Crashes_data.tsv"
+				"defaultValue": "Montgomery_Column_Corrected.tsv"
 			}
 		},
 		"folder": {
