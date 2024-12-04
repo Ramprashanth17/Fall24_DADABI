@@ -37,6 +37,20 @@
 						}
 					},
 					"enableStaging": false,
+					"logSettings": {
+						"enableCopyActivityLog": true,
+						"copyActivityLogSettings": {
+							"logLevel": "Info",
+							"enableReliableLogging": false
+						},
+						"logLocationSettings": {
+							"linkedServiceName": {
+								"referenceName": "ls_stgfall24dababi",
+								"type": "LinkedServiceReference"
+							},
+							"path": "bronze-demo/Metadata_Logs/copyactivity-logs"
+						}
+					},
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
