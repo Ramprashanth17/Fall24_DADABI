@@ -13,7 +13,7 @@
 			},
 			"FileName": {
 				"type": "string",
-				"defaultValue": "Austin_Crashes_data.tsv"
+				"defaultValue": "Austin_Crashes_Data.tsv"
 			}
 		},
 		"folder": {
