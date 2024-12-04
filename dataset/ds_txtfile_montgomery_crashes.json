@@ -35,10 +35,10 @@
 				"fileSystem": "bronze-demo"
 			},
 			"columnDelimiter": "\t",
-			"rowDelimiter": "\n",
-			"escapeChar": "\\",
+			"rowDelimiter": "\n|\r\n",
+			"escapeChar": "\\\\|\\r|\\n",
 			"firstRowAsHeader": true,
-			"quoteChar": "\""
+			"quoteChar": "\"|'|`|“"
 		},
 		"schema": []
 	}
