@@ -502,11 +502,6 @@
 				]
 			}
 		],
-		"parameters": {
-			"JobID": {
-				"type": "string"
-			}
-		},
 		"folder": {
 			"name": "PL_DADABI_Final_Project"
 		},
