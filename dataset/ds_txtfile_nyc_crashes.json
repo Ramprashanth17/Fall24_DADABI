@@ -13,7 +13,7 @@
 			},
 			"FileName": {
 				"type": "string",
-				"defaultValue": "New_York_crashes_Data.tsv"
+				"defaultValue": "NYC_Crashes_Data.tsv"
 			}
 		},
 		"folder": {
