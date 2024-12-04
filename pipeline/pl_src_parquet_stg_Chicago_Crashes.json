@@ -626,11 +626,11 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_txtfile_chicago_crashes",
+						"referenceName": "ds_txtfile_chicago_crashes_csv",
 						"type": "DatasetReference",
 						"parameters": {
 							"FolderName": "final_project_src_files",
-							"FileName": "Chicago_Crashes_data.tsv"
+							"FileName": "Chicago_Crashes_Data.csv"
 						}
 					}
 				],
@@ -667,7 +667,7 @@
 							{
 								"name": "DI_JOB_ID",
 								"value": {
-									"value": "@pipeline().parameters.JobID",
+									"value": "@pipeline().RunId",
 									"type": "Expression"
 								}
 							},
@@ -703,6 +703,20 @@
 							"type": "LinkedServiceReference"
 						},
 						"path": "snowflakestg"
+					},
+					"logSettings": {
+						"enableCopyActivityLog": true,
+						"copyActivityLogSettings": {
+							"logLevel": "Info",
+							"enableReliableLogging": false
+						},
+						"logLocationSettings": {
+							"linkedServiceName": {
+								"referenceName": "ls_stgfall24dababi",
+								"type": "LinkedServiceReference"
+							},
+							"path": "bronze-demo/Metadata_Logs"
+						}
 					},
 					"translator": {
 						"type": "TabularTranslator",
@@ -1255,7 +1269,15 @@
 							"FileName": "Metadata_log.csv"
 						}
 					},
-					"fieldList": [],
+					"fieldList": [
+						"childItems",
+						"columnCount",
+						"size",
+						"structure",
+						"contentMD5",
+						"itemName",
+						"itemType"
+					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
 						"enablePartitionDiscovery": false
