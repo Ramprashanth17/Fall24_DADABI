@@ -96,7 +96,7 @@
 							{
 								"name": "DI_JOB_ID",
 								"value": {
-									"value": "@pipeline().parameters.JobID",
+									"value": "@pipeline().RunId",
 									"type": "Expression"
 								}
 							},
@@ -619,6 +619,7 @@
 					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -627,11 +628,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"JobID": {
-				"type": "string"
-			}
-		},
 		"folder": {
 			"name": "PL_DADABI_Final_Project"
 		},
