@@ -1246,7 +1246,7 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "ds_snowflake_stg_chicago_crashes_final",
+						"referenceName": "ds_snowflake_stg",
 						"type": "DatasetReference",
 						"parameters": {
 							"schema_name": "MOTOR_CRASHES",

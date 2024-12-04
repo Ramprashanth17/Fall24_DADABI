@@ -9,7 +9,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "DelimitedText1",
+						"referenceName": "ds_txtfile_montgomery_crashes",
 						"type": "DatasetReference"
 					},
 					"name": "source1"

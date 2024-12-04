@@ -1,5 +1,5 @@
 {
-	"name": "DelimitedText1",
+	"name": "ds_txtfile_montgomery_crashes",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_stgfall24dababi",

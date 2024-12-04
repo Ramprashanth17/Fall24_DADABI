@@ -1,5 +1,5 @@
 {
-	"name": "ds_snowflake_stg_chicago_crashes_final",
+	"name": "ds_snowflake_stg",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ls_snowflake_final_project",
