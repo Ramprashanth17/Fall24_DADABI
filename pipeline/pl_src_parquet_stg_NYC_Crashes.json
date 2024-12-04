@@ -131,7 +131,7 @@
 							{
 								"name": "DI_JOB_ID",
 								"value": {
-									"value": "@pipeline().parameters.JobID",
+									"value": "@pipeline().RunId",
 									"type": "Expression"
 								}
 							},
