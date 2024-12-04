@@ -1,0 +1,45 @@
+{
+	"name": "ds_txtfile_metadata_log",
+	"properties": {
+		"description": "Metadata and log of the pipeline in txtfile",
+		"linkedServiceName": {
+			"referenceName": "ls_stgfall24dababi",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"FolderName": {
+				"type": "string",
+				"defaultValue": "Metadata_Logs"
+			},
+			"FileName": {
+				"type": "string",
+				"defaultValue": "Metadata_log.csv"
+			}
+		},
+		"folder": {
+			"name": "DS_DADABI_Final_Project"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().FolderName",
+					"type": "Expression"
+				},
+				"fileSystem": "bronze-demo"
+			},
+			"columnDelimiter": ",",
+			"rowDelimiter": "\n",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
