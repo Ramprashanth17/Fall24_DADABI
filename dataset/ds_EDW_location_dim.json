@@ -1,0 +1,47 @@
+{
+	"name": "ds_EDW_location_dim",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_snowflake_demo",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SnowflakeV2Table",
+		"schema": [
+			{
+				"name": "LOCATION_SK",
+				"type": "NUMBER",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "ZIP",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "CITY",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "STATE",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "STATE_ABBREVIATION",
+				"type": "VARCHAR"
+			},
+			{
+				"name": "DI_JOB_ID",
+				"type": "DATE"
+			},
+			{
+				"name": "DI_CREATED_DT",
+				"type": "DATE"
+			}
+		],
+		"typeProperties": {
+			"schema": "SEATTLE_PET_LICENSES",
+			"table": "LOCATION_DIM"
+		}
+	}
+}

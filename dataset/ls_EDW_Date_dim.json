@@ -1,0 +1,16 @@
+{
+	"name": "ls_EDW_Date_dim",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_snowflake_demo",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SnowflakeV2Table",
+		"schema": [],
+		"typeProperties": {
+			"schema": "SEATTLE_PET_LICENSES",
+			"table": "DATE_DIM"
+		}
+	}
+}
